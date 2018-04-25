@@ -6,3 +6,8 @@
 		About
 	{{/link-to}}
 </div>
+
+{{#each model as |rentalUnit|}}
+	// invoke rental-listing component by name, assign each rentalUnit as the rental attribute of the component.
+	{{rental-listing rental=rentalUnit}}
+{{/each}}
