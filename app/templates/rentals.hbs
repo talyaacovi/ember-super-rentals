@@ -7,7 +7,12 @@
 	{{/link-to}}
 </div>
 
-{{#each model as |rentalUnit|}}
-	// invoke rental-listing component by name, assign each rentalUnit as the rental attribute of the component.
-	{{rental-listing rental=rentalUnit}}
-{{/each}}
+{{#list-filter
+	filter=(action 'filterByCity')
+	as |filteredResults|}}
+	<ul class="results">
+		{{#each filteredResults as |rentalUnit|}}
+		<li>{{rental-listing rental=rentalUnit}}</li>
+		{{/each}}
+	</ul>
+{{/list-filter}}
